@@ -1,0 +1,85 @@
+BOLÃO BRASILEIRÃO – DOUGLAS E NATAN
+Versão para site próprio (sem a barra do Claude), com ícone para a tela inicial do celular.
+Esta é a versão mais recente do sistema (Painel, Lista de palpites, fotos dos participantes, cotas e premiação).
+
+O que tem nesta pasta
+- index.html ........ o sistema completo
+- manifest.webmanifest, sw.js, icon-*.png, apple-touch-icon.png ... fazem o app instalar na tela inicial, com o ícone da bola
+Não apague nenhum arquivo.
+
+São 4 etapas. Leva cerca de 15 minutos. Tudo é gratuito para esse tamanho de uso.
+
+------------------------------------------------------------
+ETAPA 1 – Criar o banco de dados (Firebase)
+------------------------------------------------------------
+1. Entre em https://console.firebase.google.com com uma conta Google.
+2. Clique em "Criar um projeto". Nome sugerido: bolao-douglas-natan.
+   Pode desligar o Google Analytics. Clique em Criar.
+3. No menu da esquerda: Criação > Firestore Database > "Criar banco de dados".
+   - Local: southamerica-east1 (São Paulo).
+   - Modo: "Iniciar no modo de produção". Clique em Ativar.
+4. Abra a aba "Regras", apague tudo o que estiver lá, cole o texto abaixo e clique em Publicar:
+
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /{document=**} {
+      allow read, write: if true;
+    }
+  }
+}
+
+------------------------------------------------------------
+ETAPA 2 – Pegar as chaves do projeto
+------------------------------------------------------------
+1. Clique na engrenagem (ao lado de "Visão geral do projeto") > Configurações do projeto.
+2. Role até "Seus apps" e clique no ícone </> (Web).
+3. Dê um apelido (ex.: bolao) e clique em "Registrar app". NÃO marque Hosting.
+4. Vai aparecer um bloco "firebaseConfig" com apiKey, authDomain, projectId etc.
+   Deixe essa tela aberta.
+
+Atalho: se preferir, me envie esse bloco aqui no chat e eu devolvo o index.html já pronto.
+
+------------------------------------------------------------
+ETAPA 3 – Colar as chaves no arquivo
+------------------------------------------------------------
+1. Abra o index.html com o Bloco de Notas (clique com o botão direito > Abrir com).
+2. Procure por "COLE AQUI AS CHAVES". Logo abaixo há 6 linhas com "COLE_AQUI".
+3. Troque cada COLE_AQUI pelo valor correspondente do firebaseConfig, mantendo as aspas.
+4. Salve o arquivo.
+
+------------------------------------------------------------
+ETAPA 4 – Colocar o site no ar
+------------------------------------------------------------
+1. Entre em https://app.netlify.com/drop (crie uma conta grátis se pedir).
+2. Arraste a PASTA inteira (com todos os arquivos) para a área indicada.
+3. Em instantes o Netlify mostra o endereço do site, tipo https://nome-aleatorio.netlify.app.
+4. Para um endereço mais bonito: Site configuration > Change site name (ex.: bolao-douglas-natan).
+
+------------------------------------------------------------
+PRIMEIRO ACESSO
+------------------------------------------------------------
+1. Abra o endereço do site, vá em "Administrador" e crie seu e-mail e senha.
+   Faça isso antes de divulgar o link para os participantes.
+2. Cadastre clubes, participantes e confrontos. Envie o link aos participantes.
+
+Ícone na tela inicial do celular
+- iPhone (Safari): Compartilhar > Adicionar à Tela de Início.
+- Android (Chrome): menu ⋮ > Instalar app (ou Adicionar à tela inicial).
+O app abre em tela cheia, sem barras do navegador.
+
+------------------------------------------------------------
+Esqueci a senha do administrador
+------------------------------------------------------------
+No Firebase: Firestore Database > coleção "config" > apague o documento "admin".
+Na próxima vez que abrir o site, a tela de administrador pede para criar uma nova senha.
+
+------------------------------------------------------------
+Atenção sobre segurança
+------------------------------------------------------------
+A senha do administrador controla o que o site mostra, mas as regras do banco acima são abertas.
+Quem conhece o endereço do site e entende de programação poderia alterar dados direto no banco.
+Para um bolão entre conhecidos isso costuma bastar. Não guarde dados sensíveis no sistema.
+
+Para atualizar o sistema no futuro, suba a pasta de novo no Netlify (Deploys > arraste a pasta).
+Os dados continuam no Firebase.
