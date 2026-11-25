@@ -44,6 +44,7 @@ nav a[aria-current="page"]{background:var(--sun);color:var(--sun-ink);font-weigh
 .head{display:flex;flex-wrap:wrap;align-items:end;justify-content:space-between;gap:12px;margin-bottom:20px}
 .head h1{font-size:38px;line-height:1}
 .head p{margin:4px 0 0;color:var(--ink2)}
+.reg .regdoc{display:flex;gap:14px;align-items:center;margin-bottom:14px}.reg .regdoc svg{color:var(--ok);flex:none}.reg .regdoc b{display:block;overflow-wrap:anywhere}.reg .regdoc small{color:var(--ink2)}.regpdf{width:100%;height:min(78vh,900px);border:1px solid var(--line);border-radius:10px;margin-top:16px;background:#fff}.btn.dis{opacity:.6;pointer-events:none}label.btn{display:inline-flex;align-items:center;justify-content:center}
 .anoex{display:flex;align-items:center;gap:8px;font-size:14px;color:var(--ink2)}.anoex b{padding:4px 12px;border-radius:999px;background:#E8EEF9;color:#1B3A7A;font-size:15px}.anoex .dd{min-width:96px}
 .enc{border:2px solid #E0A458!important;background:#FFF7E8!important;margin-bottom:18px}.enc h3{margin:0 0 6px}.enc .muted{color:var(--ink2);font-size:14px}
 .pitchline{height:5px;border-radius:3px;background:repeating-linear-gradient(90deg,var(--brand) 0 28px,var(--s4) 28px 56px);opacity:.9;margin-bottom:18px}
@@ -292,7 +293,66 @@ input[type=checkbox]:disabled{cursor:not-allowed;opacity:.8}
 .roll{animation:roll 1.8s linear infinite}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
 </style>
-<style>html,body{margin:0}body{background:var(--bg);color:var(--ink);font:15px/1.45 var(--font-body)}</style>
+<style>html,body{margin:0}body{background:var(--bg);color:var(--ink);font:15px/1.45 var(--font-body)}/* polish */
+:root{--r-card:16px;--r-ctl:10px;--shadow:0 1px 2px rgba(16,56,36,.06),0 4px 14px -6px rgba(16,56,36,.10)}
+body{-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;font-variant-numeric:tabular-nums}
+.card,.tile{border-radius:var(--r-card);box-shadow:var(--shadow);border-color:#DCEBE2}
+.card{padding:22px}
+.card h2{font-size:23px;letter-spacing:.005em;margin-bottom:14px}
+.head{margin-bottom:16px}
+.head h1{font-size:40px;letter-spacing:-.005em}
+.head p{font-size:15px}
+.pitchline{height:4px;opacity:.75;margin-bottom:22px}
+.tile{border-top:1px solid #DCEBE2!important;padding:18px 18px 16px;gap:4px;position:relative}
+.tile::before{content:"";width:30px;height:4px;border-radius:3px;background:var(--s4);margin-bottom:10px}
+.tile.t2::before{background:var(--sun)}.tile.t3::before{background:var(--s1)}.tile.t4::before{background:var(--s2)}
+.tile small{font-size:13.5px}
+th{text-transform:none;letter-spacing:.01em;font-size:13px;color:var(--ink2);border-bottom:1.5px solid #D4E6DB}
+tbody tr:hover td{background:#F5FBF7}
+.btn{border-radius:var(--r-ctl);font-weight:600;letter-spacing:.005em;transition:filter .15s,background .15s,box-shadow .15s;box-shadow:0 1px 0 rgba(16,56,36,.12)}
+.btn.ghost,.btn.danger{box-shadow:none}
+.btn:active{transform:translateY(1px)}
+input,select,.ddbtn{border-radius:var(--r-ctl)}
+input:focus,select:focus{border-color:var(--brand);outline:3px solid rgba(52,199,119,.28);outline-offset:0}
+nav a{border-radius:var(--r-ctl);transition:background .15s}
+nav a[aria-current="page"]{box-shadow:0 1px 2px rgba(58,43,0,.18)}
+.side{border-right:1px solid #D4EFDD}
+.tabs{border-radius:12px;box-shadow:none}
+.empty{border:1.5px dashed #CFE3D7;border-radius:var(--r-card);background:var(--surface2)}
+.anoex b{background:#E3F4EA;color:#0B5B31}
+.podium{display:flex!important;justify-content:center;align-items:flex-end;gap:12px;flex-wrap:wrap;grid-template-columns:none!important}
+.pod{flex:1 1 200px;max-width:340px;border-radius:var(--r-card);box-shadow:var(--shadow)}
+.pod .podg{display:flex;flex-wrap:wrap;justify-content:center;gap:6px 18px}
+.pod .podp{margin:0;min-width:70px}
+.pod.p1{box-shadow:0 8px 24px -10px rgba(122,92,0,.5)}
+.pod .emp{background:rgba(0,0,0,.08);border-radius:999px;padding:1px 10px;display:inline-block;margin-bottom:8px}
+.reg .regdoc svg{width:40px;height:40px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+/* pod compacto */
+.podium{gap:10px;align-items:stretch}
+.pod,.pod.p1{flex:0 1 auto;min-width:150px;max-width:340px;padding:10px 12px!important;border-radius:12px;box-shadow:none;border:1px solid var(--line);background:var(--surface2);color:var(--ink)}
+.pod.p1{background:#FFF8DC;border-color:#F0D77A;border-top:4px solid var(--sun)}
+.pod.p2{border-top:4px solid #9FB3C8}.pod.p3{border-top:4px solid #E8590C}
+.pod b{font-size:20px;line-height:1.1}
+.pod .emp{font-size:11px;padding:0 8px;margin-bottom:4px}
+.pod .podav{margin:4px 0 4px}
+.pod .podg{gap:2px 12px}
+.pod .podp{min-width:56px}
+.pod span{font-size:14px}
+.pod em{font-size:14px}
+/* podio lista */
+.podlist{list-style:none;margin:0;padding:0;border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.podlist .pl{display:grid;grid-template-columns:64px minmax(0,1fr) auto 118px;align-items:center;gap:10px;padding:9px 14px;border-top:1px solid var(--line);font-size:15px}
+.podlist .pl:first-child{border-top:0}
+.podlist .p1{background:#FFF8DC}
+.podlist .plpos{font-weight:700;white-space:nowrap}
+.podlist .plwho{display:flex;align-items:center;gap:10px;min-width:0}
+.podlist .plwho b{font:600 15px var(--font-body,inherit);overflow-wrap:anywhere}
+.podlist .emp{background:rgba(0,0,0,.07);border-radius:999px;padding:0 8px;font-size:11px;font-weight:600;white-space:nowrap}
+.podlist .plpts{color:var(--ink2);white-space:nowrap}
+.podlist .plval{text-align:right;font-weight:700;white-space:nowrap}
+@media (max-width:560px){.podlist .pl{grid-template-columns:54px minmax(0,1fr) auto;padding:9px 10px}.podlist .plval{grid-column:2/4;text-align:left;font-size:13px;margin-top:-4px}}
+</style>
 </head>
 <body>
 
@@ -345,6 +405,7 @@ const IC={
  lista:'<path d="M8 6h13M8 12h13M8 18h13"/><path d="M3 6l1 1 2-2M3 12l1 1 2-2M3 18l1 1 2-2"/>',
  cotas:'<rect x="3" y="6" width="18" height="12" rx="3"/><circle cx="12" cy="12" r="2.500"/><path d="M6.500 9.500v5M17.500 9.500v5"/>',
  acertos:'<path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/>',
+ regulamento:'<path d="M14 3H7a2 2 0 00-2 2v14a2 2 0 002 2h10a2 2 0 002-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h6"/>',
  ranking:'<path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 01-10 0zM7 6H4v1a3 3 0 003 3M17 6h3v1a3 3 0 01-3 3"/>'
 };
 const VIEWS=[
@@ -356,12 +417,13 @@ const VIEWS=[
  ['lista','Lista de palpites','Palpites por rodada e participante'],
  ['cotas','Cotas','Valor e data recebidos da cota'],
  ['acertos','Acertos','Acertos dos palpites'],
- ['ranking','Ranking','Classificação e aproveitamento']
+ ['ranking','Ranking','Classificação e aproveitamento'],
+ ['regulamento','Regulamento','Regras do bolão em PDF']
 ];
 
 const S={clubes:[],participantes:[],jogos:[],jogosAll:[],palpites:[],cotas:[],premios:{}};
 const ui={serie:'A',rod:'T',rserie:'G',pid:lsGet('bolao_pid')||'',pend:null,fotoTmp:'',editClube:null,escudoTmp:undefined,chartSel:[],chartInit:false,slot:{}};
-let cfgT=null,chartW=0,db=null,dono=false,modo=null,cfg=null,ready=false,P=new Map(),pendingRender=false,chartData=null;
+let cfgR=null,cfgT=null,chartW=0,db=null,dono=false,modo=null,cfg=null,ready=false,P=new Map(),pendingRender=false,chartData=null;
 
 /* ---------- utilidades de dados ---------- */
 const cmpJogo=(a,b)=>(a.data||'').localeCompare(b.data||'')||(a.hora||'').localeCompare(b.hora||'')||a.id.localeCompare(b.id);
@@ -444,7 +506,7 @@ async function encerrarTemporada(){
   }catch(e){falha(e)}
   ui.encBusy=false;render(true);
 }
-const permitidas=()=>efetivoAdmin()?VIEWS.map(v=>v[0]):['painel','palpites','lista','acertos','ranking'];
+const permitidas=()=>efetivoAdmin()?VIEWS.map(v=>v[0]):['painel','palpites','lista','acertos','ranking','regulamento'];
 function viewAtual(){const h=location.hash.slice(1);const ok=permitidas();return ok.includes(h)?h:ok[0]}
 function renderNav(){
   const v=viewAtual();
@@ -471,7 +533,8 @@ function vPainel(){
   }
   h+='<div class="card" style="margin-top:16px"><h2>Pódio</h2>';
   if(top.length){const gr={};top.forEach(r=>{(gr[r.pos]=gr[r.pos]||[]).push(r)});const o=[2,1,3].filter(k=>gr[k]);
-    h+='<div class="podium" style="grid-template-columns:repeat('+o.length+',minmax(0,1fr))">'+o.map(k=>{const g=gr[k].slice().sort((x,y)=>sortNome(x.p,y.p)),r=g[0],m=g.length>1;const bolo=pv.slice(k-1,k-1+g.length).reduce((t,v)=>t+v,0),val=bolo/g.length;return '<div class="pod p'+k+'"><b>'+k+'º</b>'+(m?'<small class="emp">Empate</small>':'')+g.map(x=>'<div class="podp"><div class="podav">'+avatar(x.p,k===1&&!m?68:(m?44:56))+'</div><span>'+esc(x.p.nome)+'</span></div>').join('')+r.a+' pt'+(r.a>1?'s':'')+(val>0?'<em style="display:block;font-style:normal;font-weight:700">'+brl(val)+(m?' (cada)':'')+'</em>':'')+'</div>'}).join('')+'</div>'}
+    const medal={1:'🥇',2:'🥈',3:'🥉'};
+    h+='<ol class="podlist">'+[1,2,3].filter(k=>gr[k]).map(k=>{const g=gr[k].slice().sort((x,y)=>sortNome(x.p,y.p)),m=g.length>1,bolo=pv.slice(k-1,k-1+g.length).reduce((t,v)=>t+v,0),val=bolo/g.length;return g.map(x=>'<li class="pl p'+k+'"><span class="plpos">'+(medal[k]||'')+' '+k+'º</span><span class="plwho">'+avatar(x.p,30)+'<b>'+esc(x.p.nome)+'</b>'+(m?'<small class="emp">empate</small>':'')+'</span><span class="plpts">'+x.a+' pt'+(x.a>1?'s':'')+'</span><span class="plval">'+(val>0?brl(val)+(m?' (cada)':''):'')+'</span></li>').join('')}).join('')+'</ol>'}
   else h+=vazio('Sem pontuação ainda','Quando o primeiro resultado for marcado, o pódio aparece aqui.');
   h+='</div>';
   h+='<div class="card" style="margin-top:16px"><h2>Premiação</h2><div class="grid g4">'+['🥇 1º colocado','🥈 2º colocado','🥉 3º colocado'].map((t,i)=>'<div class="tile t'+(i+1)+'"><small>'+t+'</small><strong>'+(pv[i]?brl(pv[i]):'—')+'</strong></div>').join('')+'<div class="tile t4"><small>Total em prêmios</small><strong>'+(pt?brl(pt):'—')+'</strong></div></div></div>';
@@ -765,7 +828,61 @@ function vGate(){
 function entrarAdmin(){modo='admin';try{sessionStorage.setItem('bolao_adm','1')}catch(e){}lsSet('bolao_modo','');location.hash='painel';render(true);window.scrollTo(0,0)}
 
 /* ---------- render ---------- */
-const R={painel:vPainel,participantes:vParticipantes,clubes:vClubes,confrontos:vConfrontos,palpites:vPalpites,lista:vLista,cotas:vCotas,acertos:vAcertos,ranking:vRanking};
+
+/* ---------- regulamento (PDF) ---------- */
+const REG_MAX=5*1024*1024,REG_CHUNK=180000;
+async function salvarArquivo(nome,blob){
+  try{const dl=window.claude&&await claude.use('downloads');
+    if(dl){await dl.save({filename:nome,data:blob});return true}}catch(e){if(e&&e.code==='declined'){toast('Download cancelado.');return false}}
+  try{const u=URL.createObjectURL(blob),l=document.createElement('a');l.href=u;l.download=nome;document.body.appendChild(l);l.click();l.remove();setTimeout(()=>URL.revokeObjectURL(u),4000);return true}
+  catch(e){toast('Não foi possível salvar o arquivo.');return false}
+}
+function lerBase64(file){return new Promise((ok,no)=>{const r=new FileReader();r.onload=()=>ok(String(r.result).split(',')[1]||'');r.onerror=no;r.readAsDataURL(file)})}
+function b64Blob(b64){const bin=atob(b64),u=new Uint8Array(bin.length);for(let i=0;i<bin.length;i++)u[i]=bin.charCodeAt(i);return new Blob([u],{type:'application/pdf'})}
+async function carregaRegulamento(){
+  if(!cfgR||!cfgR.partes)return null;
+  if(ui.regBlob&&ui.regKey===cfgR.em)return ui.regBlob;
+  const parts=await Promise.all(Array.from({length:cfgR.partes},(_,i)=>db.doc('regulamento/p'+i).get()));
+  const b64=parts.map(d=>d.exists?d.data().d:'').join('');
+  ui.regBlob=b64Blob(b64);ui.regKey=cfgR.em;return ui.regBlob;
+}
+async function enviarRegulamento(file){
+  if(!file)return;
+  if(file.type!=='application/pdf'&&!/\.pdf$/i.test(file.name)){toast('Escolha um arquivo PDF.');return}
+  if(file.size>REG_MAX){toast('O PDF tem mais de 5 MB. Reduza o arquivo e tente de novo.');return}
+  ui.regBusy=true;render(true);
+  try{
+    const b64=await lerBase64(file),n=Math.ceil(b64.length/REG_CHUNK),antigas=cfgR&&cfgR.partes||0;
+    for(let i=0;i<n;i++)await db.doc('regulamento/p'+i).set({i,d:b64.slice(i*REG_CHUNK,(i+1)*REG_CHUNK)});
+    for(let i=n;i<antigas;i++)await db.doc('regulamento/p'+i).delete();
+    await db.doc('config/regulamento').set({nome:file.name,tam:file.size,partes:n,em:Date.now()});
+    ui.regBlob=null;ui.regVer=false;toast('Regulamento publicado.');
+  }catch(e){falha(e)}
+  ui.regBusy=false;render(true);
+}
+async function removerRegulamento(){
+  try{const n=cfgR&&cfgR.partes||0;for(let i=0;i<n;i++)await db.doc('regulamento/p'+i).delete();await db.doc('config/regulamento').delete();ui.regBlob=null;ui.regVer=false;toast('Regulamento removido.')}
+  catch(e){falha(e)}
+  render(true);
+}
+function vRegulamento(){
+  let h=head('Regulamento','Regras oficiais do bolão');
+  const tem=cfgR&&cfgR.partes;
+  const kb=n=>n>=1048576?(n/1048576).toFixed(1).replace('.',',')+' MB':Math.max(1,Math.round(n/1024))+' KB';
+  h+='<div class="card reg">';
+  if(tem){
+    h+='<div class="regdoc"><svg viewBox="0 0 24 24" width="34" height="34" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">'+IC.regulamento+'</svg><div><b>'+esc(cfgR.nome||'regulamento.pdf')+'</b><small>PDF · '+kb(cfgR.tam||0)+' · atualizado em '+fmtData(new Date(cfgR.em).toISOString().slice(0,10))+'</small></div></div>';
+    h+='<div class="bar"><button class="btn" data-act="reg-ver">'+(ui.regVer?'Ocultar regulamento':'Ler regulamento')+'</button><button class="btn ghost" data-act="reg-baixar">Baixar PDF</button></div>';
+    if(ui.regVer)h+=ui.regUrl?'<iframe class="regpdf" title="Regulamento do bolão" src="'+ui.regUrl+'"></iframe>':'<p class="muted">Carregando regulamento…</p>';
+  }else h+=vazio('Regulamento ainda não publicado',efetivoAdmin()?'Anexe o PDF abaixo para os participantes lerem.':'O administrador ainda não anexou o PDF.');
+  h+='</div>';
+  if(efetivoAdmin()){
+    h+='<div class="card"><h2>'+(tem?'Substituir regulamento':'Anexar regulamento')+'</h2><div class="bar"><label class="btn sun'+(ui.regBusy?' dis':'')+'" for="reg-file">'+(ui.regBusy?'Enviando…':'Escolher PDF')+'</label><input type="file" id="reg-file" accept="application/pdf,.pdf" hidden'+(ui.regBusy?' disabled':'')+'>'+(tem?'<button class="btn danger" data-act="reg-del" data-confirm="1">Remover</button>':'')+'</div><p class="muted">Somente PDF, até 5 MB. Todos os participantes poderão ler e baixar.</p></div>';
+  }
+  return h;
+}
+
+const R={painel:vPainel,participantes:vParticipantes,clubes:vClubes,confrontos:vConfrontos,palpites:vPalpites,lista:vLista,cotas:vCotas,acertos:vAcertos,ranking:vRanking,regulamento:vRegulamento};
 function campoAtivo(){const a=document.activeElement;return a&&$('#main').contains(a)&&((a.tagName==='INPUT'&&!['checkbox','button'].includes(a.type))||a.tagName==='SELECT')}
 function render(force){
   if(!ready)return;
@@ -793,6 +910,9 @@ document.addEventListener('click',async ev=>{
   if(el.dataset.confirm==='1'&&!el.dataset.armed){el.dataset.armed='1';const t=el.textContent;el.textContent='Confirmar?';setTimeout(()=>{if(el.isConnected){delete el.dataset.armed;el.textContent=t}},3200);return}
   if(act==='serie'){ui[el.dataset.key]=el.dataset.v;ui.pend=null;if(el.dataset.key==='serie')ui.rod='T';render(true)}
   else if(act==='rod-nav'){const op=['T'].concat(rodadas(ui.serie));if(S.jogos.some(j=>j.serie===ui.serie&&j.rod==null))op.push('S');let i=op.indexOf(ui.rod);if(i<0)i=0;i=Math.max(0,Math.min(op.length-1,i+Number(el.dataset.d)));ui.rod=op[i];render(true)}
+  else if(act==='reg-ver'){ui.regVer=!ui.regVer;ui.regUrl=null;render(true);if(ui.regVer){try{const b=await carregaRegulamento();if(!b)return;ui.regUrl=URL.createObjectURL(b);render(true)}catch(e){ui.regVer=false;toast('Não consegui abrir o regulamento.');render(true)}}return}
+  else if(act==='reg-baixar'){try{const b=await carregaRegulamento();if(b)await salvarArquivo((cfgR.nome||'regulamento.pdf'),b)}catch(e){toast('Não consegui baixar o regulamento.')}return}
+  else if(act==='reg-del'){await removerRegulamento();return}
   else if(act==='ano-pick'){if(await gravar('config','temporada',{ano:+el.dataset.v}))toast('Ano em exercício: '+el.dataset.v+'.');return}
   else if(act==='enc-backup'){baixarBackup();ui.encBk=true;render(true);return}
   else if(act==='enc-ask'){ui.encAsk=true;render(true);return}
@@ -845,6 +965,7 @@ document.addEventListener('change',async ev=>{
   else if(t.dataset.pick){
     if(t.checked)ui.pend={jid:t.dataset.pick,lado:t.dataset.lado,pid:ui.pid};else ui.pend=null;
     render(true)}
+  else if(t.id==='reg-file'){const f0=t.files[0];t.value='';enviarRegulamento(f0)}
   else if(t.id==='p-img'&&t.files[0]){try{ui.fotoTmp=await lerFoto(t.files[0]);atualizaFotoPrev();toast('Foto pronta. Clique em Cadastrar.')}catch(e){toast('Não consegui ler essa imagem.')}}
   else if(t.dataset.fotopid&&t.files[0]){try{const d=await lerFoto(t.files[0]);if(await atualizar('participantes',t.dataset.fotopid,{foto:d}))toast('Foto atualizada.')}catch(e){toast('Não consegui ler essa imagem.')}}
   else if(t.id==='c-img'&&t.files[0]){
@@ -955,8 +1076,9 @@ document.addEventListener('submit',async ev=>{
   ready=true;clearTimeout(slow);
   let adm=false;try{adm=sessionStorage.getItem('bolao_adm')==='1'}catch(e){}
   modo=adm?'admin':(lsGet('bolao_modo')==='part'?'part':null);
+  db.doc('config/regulamento').onSnapshot(sn=>{cfgR=sn.exists?sn.data():null;if(ui.regKey!==(cfgR&&cfgR.em)){ui.regBlob=null;ui.regUrl=null;ui.regVer=false}render()},e=>console.error('regulamento',e));
   db.doc('config/temporada').onSnapshot(sn=>{cfgT=sn.exists?sn.data():null;aplicaAno();render()},e=>console.error('temporada',e));
-  db.doc('config/admin').onSnapshot(sn=>{cfg=sn.exists?sn.data():null;if(modo==='admin'&&!cfg){modo=null}render()},e=>console.error('config',e));
+  db.doc('config/admin').onSnapshot(sn=>{{const d=sn.exists?sn.data():null;cfg=d&&d.salt&&d.hash&&d.email?d:null}if(modo==='admin'&&!cfg){modo=null}render()},e=>console.error('config',e));
   db.doc('premios/atual').onSnapshot(sn=>{S.premios=sn.exists?sn.data():{};render()},e=>console.error('premios',e));
   const cols=['clubes','participantes','jogos','palpites','cotas'];
   cols.forEach(n=>db.collection(n).onSnapshot(snap=>{clearTimeout(slow);S[n==='jogos'?'jogosAll':n]=snap.docs.map(d=>Object.assign({id:d.id},d.data()));if(n==='jogos')aplicaAno();render()},e=>{console.error(n,e);if(e&&e.code==='permission-denied')toast('Sem permissão para ler os dados. Confira as regras do Firestore.')}));
